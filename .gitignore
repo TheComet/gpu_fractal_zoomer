@@ -1,9 +1,9 @@
 # Files to ignore
 
 # generated files
-bin
-lib
-project
+bin/
+lib/
+project/
 
 # executables
 *.exe
