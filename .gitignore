@@ -1,0 +1,13 @@
+# Files to ignore
+
+# generated files
+bin
+lib
+project
+
+# executables
+*.exe
+*.dll
+
+# Windows thumbnails
+*.db
