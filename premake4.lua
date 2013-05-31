@@ -62,7 +62,7 @@ solution "GPU-Fractal-Zoomer"
 				"Symbols"
 			}
 			libdirs {
-				"lib",
+				"bin/lib",
 				"$(SFML_HOME)/lib"
 			}
 			links {
@@ -84,7 +84,7 @@ solution "GPU-Fractal-Zoomer"
 				"Optimize"
 			}
 			libdirs {
-				"lib"
+				"bin/lib"
 			}
 			links {
 				"gpu-fractal-zoomer-lib"
@@ -107,7 +107,7 @@ solution "GPU-Fractal-Zoomer"
 
 			-- Debug configuration
 			configuration "Debug"
-				targetdir "lib"
+				targetdir "bin/lib"
 				targetsuffix "_d"
 				defines {
 					"DEBUG",
@@ -124,7 +124,7 @@ solution "GPU-Fractal-Zoomer"
 
 			-- release configuration
 			configuration "Release"
-				targetdir "lib"
+				targetdir "bin/lib"
 				defines {
 					"NDEBUG"
 				}
