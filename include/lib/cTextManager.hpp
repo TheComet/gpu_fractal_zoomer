@@ -10,7 +10,6 @@
 
 #include <vector>
 #include <cException.hpp>
-#include <cText.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
@@ -27,21 +26,11 @@ public:
 	// loads resources
 	void load( void );
 
-	// updates internal values - expected to be called at 60 fps
-	void update( void );
-
-	// renders everything to a window
-	void render( sf::RenderWindow* window );
-
-	// methods for managing text objects
-	cText* createText( const char* text, unsigned int life );		// returns pointer to created object
-	void destroyAll( void );
+	// draws text to a window
+	void printText( float x, float y, std::string text, sf::RenderWindow* window );
 	
 
 private:
-
-	// list of text objects
-	std::vector<cText*>* m_pTextList;
 
 	// font
 	sf::Font* m_pFont;

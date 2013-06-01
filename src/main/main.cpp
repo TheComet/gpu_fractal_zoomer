@@ -52,7 +52,7 @@ int main( int argc, char* argv[] )
 	#ifdef _DEBUG
 
 		// construct app with hard coded parameters
-		theApp = new GPUFractalZoomer::cApp( 800, 600, 32, false, true );
+		theApp = new GPUFractalZoomer::cApp( 1024, 768, 32, false, true );
 
 	#endif
 

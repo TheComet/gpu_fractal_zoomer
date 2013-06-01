@@ -68,7 +68,6 @@ solution "GPU-Fractal-Zoomer"
 			links {
 				"gpu-fractal-zoomer-lib_d",
 				"sfml-main-d",
-				"sfml-audio-d",
 				"sfml-graphics-d",
 				"sfml-system-d",
 				"sfml-window-d"
@@ -84,10 +83,15 @@ solution "GPU-Fractal-Zoomer"
 				"Optimize"
 			}
 			libdirs {
-				"bin/lib"
+				"bin/lib",
+				"$(SFML_HOME)/lib"
 			}
 			links {
-				"gpu-fractal-zoomer-lib"
+				"gpu-fractal-zoomer-lib",
+				"sfml-main",
+				"sfml-graphics",
+				"sfml-system",
+				"sfml-window"
 			}
 
 		----------------------------------------------------------------

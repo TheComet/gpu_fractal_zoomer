@@ -47,6 +47,10 @@ private:
 	// fractal frame, a class to handle the fractal
 	cFractalFrame* m_pFractalFrame;
 
+	// text and fonts
+	sf::Text* m_pText;
+	sf::Font* m_pFont;
+
 	// counts how many game loops have passed
 	unsigned long m_pLoopCounter;
 

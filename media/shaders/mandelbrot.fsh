@@ -87,6 +87,6 @@ vec4 getColour( float i )
       if( state == 4 ){ g++; if(g>25){ g=25; state=5; }}
       if( state == 5 ){ b--; if(b<0  ){ b=0;   state=0; }}
    }
-   vec4 ret = vec4(r,g,b,1.0)/25.0;
+   vec4 ret = vec4(r,g,b,25.0)/25.0;
    return ret;
 }
