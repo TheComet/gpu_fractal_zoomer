@@ -53,7 +53,7 @@ void main(void)
             old_a = a;
             a = a*a - b*b + ca;
             b = 2.0*old_a*b + cbi;
-            if( a*a > 4.0 ) break;
+            if( a*a + b*b > 4.0 ) break;
          }
          
          // successful
