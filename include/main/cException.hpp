@@ -14,9 +14,9 @@ class cException : public std::exception
 public:
 
 	// error messages can be passed to constructor
-	cException( void );
-	cException( const char* message );
-	~cException( void );
+	cException( void ) throw();
+	cException( const char* message ) throw();
+	~cException( void ) throw();
 
 	// override standard what method
 	virtual const char* what() const throw();

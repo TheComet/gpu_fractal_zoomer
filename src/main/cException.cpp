@@ -8,18 +8,18 @@
 
 // -------------------------------------------------------------------
 // constructor
-cException::cException( void )
+cException::cException( void ) throw()
 {
 	this->m_pMessage = "An error occured and the program must be terminated.";
 }
-cException::cException( const char* message )
+cException::cException( const char* message ) throw()
 {
 	this->m_pMessage = message;
 }
 
 // -------------------------------------------------------------------
 // destructor
-cException::~cException( void )
+cException::~cException( void ) throw()
 {
 }
 

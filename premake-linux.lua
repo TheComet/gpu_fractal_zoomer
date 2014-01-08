@@ -6,12 +6,24 @@
 -- Global directories to include
 ----------------------------------------------------------------
 
-local solutionIncludeDirs = {
-	"include",
-	"include/lib",
-	"include/main",
-	"$(SFML_HOME)/include"
-}
+if os.get() == "windows" then
+	solutionIncludeDirs = {
+		"include",
+		"include/lib",
+		"include/main",
+		"$(SFML_HOME)/include"
+	}
+end
+
+if os.get() == "linux" then
+	solutionIncludeDirs = {
+		"include",
+		"include/lib",
+		"include/main",
+		"/usr/include",
+		"/usr/local/include"
+	}
+end
 
 ----------------------------------------------------------------
 -- 8-bit-challenge solution
@@ -63,14 +75,15 @@ solution "GPU-Fractal-Zoomer"
 			}
 			libdirs {
 				"bin/lib",
-				"$(SFML_HOME)/lib"
+				"$(SFML_HOME)/lib",
+				"/usr/lib",
+				"/usr/local/lib"
 			}
 			links {
 				"gpu-fractal-zoomer-lib_d",
-				"sfml-main-d",
-				"sfml-graphics-d",
-				"sfml-system-d",
-				"sfml-window-d"
+				"sfml-graphics",
+				"sfml-system",
+				"sfml-window"
 			}
 
 		-- Release configuration
@@ -140,3 +153,4 @@ solution "GPU-Fractal-Zoomer"
 				}
 				links {
 				}
+
