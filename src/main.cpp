@@ -9,9 +9,9 @@
 // -------------------------------------------------------------------
 // Include files
 #include <iostream>
-#include <cException.hpp>
-#include <ccmdParser.hpp>
-#include <cApp.hpp>
+#include "gpu_fractal_zoomer/cException.hpp"
+#include "gpu_fractal_zoomer/ccmdParser.hpp"
+#include "gpu_fractal_zoomer/cApp.hpp"
 
 // -------------------------------------------------------------------
 // Main entry point
@@ -49,10 +49,10 @@ int main( int argc, char* argv[] )
 		);
 
 	#endif
-	#ifdef _DEBUG
+	#ifdef DEBUG
 
 		// construct app with hard coded parameters
-		theApp = new GPUFractalZoomer::cApp( 1024, 768, 32, false, true );
+		theApp = new GPUFractalZoomer::cApp( 640, 480, 32, false, true );
 
 	#endif
 

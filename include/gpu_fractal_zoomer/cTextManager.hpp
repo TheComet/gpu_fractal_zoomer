@@ -7,11 +7,12 @@
 
 // -------------------------------------------------------------------
 // include files
+#include <string>
 
-#include <vector>
-#include <cException.hpp>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
+namespace sf {
+	class RenderWindow;
+	class Font;
+}
 
 namespace GPUFractalZoomer {
 
@@ -28,7 +29,7 @@ public:
 
 	// draws text to a window
 	void printText( float x, float y, std::string text, sf::RenderWindow* window );
-	
+
 
 private:
 

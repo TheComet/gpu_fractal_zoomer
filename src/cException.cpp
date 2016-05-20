@@ -4,7 +4,7 @@
 
 // -------------------------------------------------------------------
 // include files
-#include <cException.hpp>
+#include "gpu_fractal_zoomer/cException.hpp"
 
 // -------------------------------------------------------------------
 // constructor

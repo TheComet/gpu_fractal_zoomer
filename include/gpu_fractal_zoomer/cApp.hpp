@@ -4,11 +4,18 @@
 // -------------------------------------------------------------------
 // include files
 
-#include <SFML/Window.hpp>
-#include <cTextManager.hpp>
-#include <cFractalFrame.hpp>
+namespace sf {
+	class RenderWindow;
+	class Clock;
+	class Event;
+	class Text;
+	class Font;
+}
 
 namespace GPUFractalZoomer {
+
+class cTextManager;
+class cFractalFrame;
 
 class cApp
 {
@@ -26,7 +33,7 @@ public:
 
 	// updates the game loop
 	void updateGame( void );
-	
+
 	// renders everything
 	void renderGame( void );
 

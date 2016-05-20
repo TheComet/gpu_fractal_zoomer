@@ -4,7 +4,7 @@
 
 // -------------------------------------------------------------------
 // include files
-#include <cText.hpp>
+#include "gpu_fractal_zoomer/cText.hpp"
 #include <iostream>
 
 namespace GPUFractalZoomer {

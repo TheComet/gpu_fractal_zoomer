@@ -4,8 +4,8 @@
 
 // -------------------------------------------------------------------
 // include files
-#include <cFractalFrame.hpp>
-#include <cException.hpp>
+#include "gpu_fractal_zoomer/cFractalFrame.hpp"
+#include "gpu_fractal_zoomer/cException.hpp"
 #include <iostream>
 
 namespace GPUFractalZoomer {
@@ -115,6 +115,7 @@ void cFractalFrame::setIterations( float iterations )
 	if( iterations < 1.0f ) iterations = 1.0f;
 	if( iterations > 10000.0f ) iterations = 10000.0f;
 	this->maxIterations = iterations;
+	std::cout << "Iterations: " << this->maxIterations << std::endl;
 }
 
 // -------------------------------------------------------------------

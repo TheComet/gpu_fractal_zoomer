@@ -4,7 +4,7 @@
 
 // -------------------------------------------------------------------
 // Include files
-#include <ccmdParser.hpp>
+#include "gpu_fractal_zoomer/ccmdParser.hpp"
 #include <string.h>
 
 // -------------------------------------------------------------------

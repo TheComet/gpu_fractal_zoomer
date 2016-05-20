@@ -4,9 +4,12 @@
 
 // -------------------------------------------------------------------
 // include files
-#include <cTextManager.hpp>
+#include "gpu_fractal_zoomer/cTextManager.hpp"
+#include "gpu_fractal_zoomer/cException.hpp"
+
+#include <SFML/Graphics.hpp>
+
 #include <iostream>
-#include <cException.hpp>
 
 namespace GPUFractalZoomer {
 

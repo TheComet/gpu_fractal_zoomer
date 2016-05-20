@@ -2,6 +2,7 @@
 
 # generated files
 bin/
+build/
 project/
 
 # executables
@@ -10,3 +11,6 @@ project/
 
 # Windows thumbnails
 *.db
+
+# IDE specific files
+*.kdev4
