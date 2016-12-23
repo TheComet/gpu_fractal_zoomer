@@ -4,7 +4,14 @@
 // by Alex Murray (TheComet)
 // ------------------------------------------------------------------
 
+// Can be 2 or 3
 #define POWER 2
+
+// Set to 1 to enable. Set to 0 to disable
+#define SMOOTH_COLOURING 1
+
+// How fine-grained the colour palette should be
+#define RESOLUTION 200
 
 // ------------------------------------------------------------------
 // Uniforms
@@ -15,13 +22,14 @@ uniform float maxX;
 uniform float minY;
 uniform float maxY;
 uniform float maxIterations;
+uniform float counter;
 
 // ------------------------------------------------------------------
 // Shared
 // ------------------------------------------------------------------
 
 // gets the colour in proportion to the number of iterations
-vec4 getColour( float i );
+vec4 getColour( float i, float resolution );
 
 void main(void)
 {
@@ -67,10 +75,12 @@ void main(void)
 	{
 
 		// smooth colouring
-		//a = (i - (log(log(sqrt(a*a+b*b)))))/0.3010299/maxIterations;
+#if SMOOTH_COLOURING == 1
+		i = (i - (log(log(sqrt(z_real_raised+z_imag_raised)))))/0.3010299;
+#endif
 
 		// get colour
-		colour = getColour(i);
+		colour = getColour(i, RESOLUTION);
 
 	}
 
@@ -78,19 +88,23 @@ void main(void)
 	gl_FragColor = colour;
 }
 
-vec4 getColour( float i )
+float wrap( float value, float wrap_to )
 {
-	int r=0,g=0,b=0;
-	int state = 0;
-	for( float j=0.0; j < i; j=j+1.0 )
-	{
-		if( state == 0 ){ r++; if(r>25){ r=25; state=1; }}
-		if( state == 1 ){ g--; if(g<0  ){ g=0;	state=2; }}
-		if( state == 2 ){ b++; if(b>25){ b=25; state=3; }}
-		if( state == 3 ){ r--; if(r<0  ){ r=0;	state=4; }}
-		if( state == 4 ){ g++; if(g>25){ g=25; state=5; }}
-		if( state == 5 ){ b--; if(b<0  ){ b=0;	state=0; }}
-	}
-	vec4 ret = vec4(r,g,b,25.0)/25.0;
-	return ret;
+    while( value > wrap_to )
+        value -= wrap_to;
+    return value;
 }
+
+vec3 hsv2rgb(vec3 c)
+{
+    vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+vec4 getColour( float i, float resolution )
+{
+	i = wrap ( i + wrap(counter/2, resolution), resolution ) / resolution;
+	return vec4(hsv2rgb(vec3(i, 0.8, 1)), 1);
+}
+

@@ -101,8 +101,6 @@ find_package (SFML 2 COMPONENTS system window graphics REQUIRED)
 include_directories (${SFML_INCLUDE_DIR})
 target_link_libraries (gpu_fractal_zoomer ${SFML_LIBRARIES})
 
-message ("the shit is: ${SFML__LIBRARY}")
-
 # generates the correct project files for visual studio, setting the correct
 # debug working directory and other stuff
 create_vcproj_userfile (gpu_fractal_zoomer)

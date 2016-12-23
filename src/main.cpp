@@ -24,7 +24,6 @@ int main( int argc, char* argv[] )
 	try
 	{
 
-	#ifdef NDEBUG
 
 		// -------------------------------------------------------------------
 		// parse command line arguments
@@ -47,14 +46,6 @@ int main( int argc, char* argv[] )
 			parser.isFullscreen(),
 			parser.useVsync()
 		);
-
-	#endif
-	#ifdef DEBUG
-
-		// construct app with hard coded parameters
-		theApp = new GPUFractalZoomer::cApp( 640, 480, 32, false, true );
-
-	#endif
 
 		// run the game
 		theApp->load();

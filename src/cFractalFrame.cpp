@@ -18,7 +18,8 @@ cFractalFrame::cFractalFrame( sf::RenderWindow* window ) :
 	m_pZoomTarget( 0.0, 0.0 ),
 	m_pZoomSpeed( 0.0 ),
 	m_pWindowSizeX( static_cast<float>(window->getSize().x) ),
-	m_pWindowSizeY( static_cast<float>(window->getSize().y) )
+	m_pWindowSizeY( static_cast<float>(window->getSize().y) ),
+    counter(0)
 {
 	// debug
 	std::cout << "constructed cFractalFrame" << std::endl;
@@ -144,6 +145,9 @@ void cFractalFrame::update( void )
 	maxY = maxY - (reduce * weight);
 	minY = minY + (reduce * (1.0f - weight));
 
+    // increase counter, required by shader
+    counter++;
+
 	// retain aspect ratio (need to do this due to floating point inprecision)
 	maxX = (maxY-minY) * this->m_pAspectRatio.x / this->m_pAspectRatio.y + minX;
 
@@ -160,6 +164,7 @@ void cFractalFrame::render( sf::RenderWindow* window )
 	this->m_pShader->setParameter( "minX", minX );
 	this->m_pShader->setParameter( "minY", minY );
 	this->m_pShader->setParameter( "maxIterations", maxIterations );
+    this->m_pShader->setParameter( "counter", counter);
 
 	// render to window
 	window->draw( *this->m_pQuad, this->m_pShader );

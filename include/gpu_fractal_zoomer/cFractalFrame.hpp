@@ -64,6 +64,7 @@ private:
 	float minY;
 	float maxY;
 	float maxIterations;
+    float counter;
 };
 
 } // namespace GPUFractalZoomer
