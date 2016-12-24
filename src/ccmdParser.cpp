@@ -11,8 +11,8 @@
 // constructor
 ccmdParser::ccmdParser( void ) :
 	m_pIsReadyToLaunch( false ),
-	m_pWidth( 480 ),
-	m_pHeight( 640 ),
+	m_pWidth( 800 ),
+	m_pHeight( 600 ),
 	m_pDepth( 32 ),
 	m_pIsFullscreen( false ),
 	m_pUseVsync( false )
