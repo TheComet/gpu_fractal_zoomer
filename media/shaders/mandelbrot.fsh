@@ -4,6 +4,9 @@
 // by Alex Murray (TheComet)
 // ------------------------------------------------------------------
 
+// uncomment this for cartesian implementation
+//#define USE_POLAR
+
 // Can be 2 or 3
 #define POWER 2
 
@@ -11,7 +14,7 @@
 #define SMOOTH_COLOURING 1
 
 // How fine-grained the colour palette should be
-#define RESOLUTION 200
+#define RESOLUTION 32
 
 // ------------------------------------------------------------------
 // Uniforms
@@ -31,7 +34,36 @@ uniform float counter;
 // gets the colour in proportion to the number of iterations
 vec4 getColour( float i, float resolution );
 
-void main(void)
+
+#if defined(USE_POLAR)
+#   define main_polar main
+#else
+#   define main_rect main
+#endif
+
+// ------------------------------------------------------------------
+void main_polar(void)
+{
+    float dx = maxX - minX;
+    float dy = maxY - minY;
+    float c_real = minX + dx * gl_TexCoord[0].x;
+    float c_imag = minY + dy * gl_TexCoord[0].y;
+
+    // reset
+    float z_real = 0.0;
+    float z_imag = 0.0;
+    vec2 z = vec2(0, 0);
+
+    float i;
+    for(i = 0.0; i < maxIterations; i=i+1.0)
+    {
+        // z = z^2 + c
+        z = dot(z, z);
+    }
+}
+
+// ------------------------------------------------------------------
+void main_rect(void)
 {
 
 	// final colour will be stored here
